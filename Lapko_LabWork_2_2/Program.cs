@@ -14,7 +14,7 @@ namespace Lapko_LabWork_2_2
             // sorts them so that they make up the largest possible number. 
             // For example, [50, 2, 1, 9], the largest generated number is 95021.
 
-            int[] array = new int[] { 50, 2, 1, 9, 96};
+            int[] array = new int[] { 50, 2, 1, 9 };
             Console.WriteLine(GetMaximumPossibleNumber(array));
 
             Console.ReadKey();
@@ -27,9 +27,8 @@ namespace Lapko_LabWork_2_2
             {
                 for (int j = i + 1; j < array.Length; j++)
                 {
-
-                    // Числа сравниваем попозиционно, в случае если одно число длинее другого
-                    // дополняем меньшее последней цифрой до длины большего
+                    // Сравниваем длину чисел
+                    // наименьшему добавляем 9 до длины наибольшего
                     string elementI = array[i].ToString();
                     string elementJ = array[j].ToString();
 
@@ -40,11 +39,11 @@ namespace Lapko_LabWork_2_2
                     {
                         if (lengthElementI > lengthElementJ)
                         {
-                            elementJ += new string(elementJ.Last(), lengthElementI - lengthElementJ); 
+                            elementJ += new string('9', lengthElementI - lengthElementJ); 
                         }
                         else
                         {
-                            elementI += new string(elementI.Last(), lengthElementJ - lengthElementI);
+                            elementI += new string('9', lengthElementJ - lengthElementI);
                         }
                     }
 
